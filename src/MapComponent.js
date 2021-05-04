@@ -15,7 +15,7 @@ const MapComponent = ({
   onClearSearch,
   showDirectionPanel,
   directionsPanelContainer,
-  API
+  API,defaultLocation,defaultZoom
 }) => {
   const ref = React.useRef();
   const [inputRef, setInputRef] = React.useState();
@@ -27,8 +27,8 @@ const MapComponent = ({
           lng: -77.1945
         };
         const initialOptions = {
-          center: Pennsylvania,
-          zoom: 6,
+          center: defaultLocation||Pennsylvania,
+          zoom: defaultZoom||6,
           streetViewControl: false,
           mapTypeControl: false
         };
@@ -86,16 +86,6 @@ const MapComponent = ({
     className: "map-optional-container"
   }) :
   /*#__PURE__*/
-  // <iframe
-  //   title="Dashboard"
-  //   width="100%"
-  //   height="340"
-  //   frameBorder="0"
-  //   scrolling="no"
-  //   marginHeight="0"
-  //   marginWidth="0"
-  //   src="https://maps.google.com/maps?width=100%25&amp;height=340&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-  // ></iframe>
   React.createElement(React.Fragment, null, enableLocationSearch && /*#__PURE__*/React.createElement(SearchLocation, {
     mapRef: inputRef,
     onSearch: onSearch,
@@ -232,7 +222,9 @@ MapComponent.propTypes = {
   onSearch: PropTypes.func,
   onClearSearch: PropTypes.func,
   showDirectionPanel: PropTypes.bool,
-  directionsPanelContainer: PropTypes.func
+  directionsPanelContainer: PropTypes.func,
+  defaultLocation:PropTypes.object,
+  defaultZoom:PropTypes.number
 };
 PlacesAutoComplete.propTypes = {
   mapRef: PropTypes.object
