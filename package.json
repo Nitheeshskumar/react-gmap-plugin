@@ -1,0 +1,44 @@
+{
+  "name": "react-gmap-plugin",
+  "version": "1.0.2",
+  "description": "React Plugin for Google map",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nitheeshskumar/react-gmap-plugin.git"
+  },
+  "keywords": [
+    "Google",
+    "map",
+    "react",
+    "plugin"
+  ],
+  "author": "Nitheesh S Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nitheeshskumar/react-gmap-plugin/issues"
+  },
+  "homepage": "https://github.com/Nitheeshskumar/react-gmap-plugin#readme",
+  "dependencies": {
+    "@babel/preset-env": "^7.14.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "webpack": "^5.36.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
