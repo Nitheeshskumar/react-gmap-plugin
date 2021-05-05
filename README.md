@@ -40,7 +40,7 @@ return  <div className="App" style={{ height: "200px" }}>
 
 
 ```
-## Props
+## MapComponent Props
 
 |Name | Type | Description
 |---|---|---
@@ -55,4 +55,18 @@ enableLocationSearch|`Boolean`|A Searchbox is rendered with the map. Default: `f
 onSearch|`function`| Used is association with enableLocationSearch. The function can be called in association with geocode service or any other custom functionalities
 onClearSearch|`function`|Any optional callbacks actions. The input is cleared on clicking clear button on search box by default
 showDirectionPanel|`Boolean`| To show directions in a panel after calling the directions service. Used with directionsPanelContainer function.
-directionsPanelContainer|`function`|Custom wrapper for the directionPanel. Eg: `directionsPanelContainer={(child)=><div className='wrapper'>{child}</div> }`
+directionsPanelContainer|`function`|Custom wrapper for the directionPanel. Eg: `directionsPanelContainer={(child)=><div className='wrapper'>{child}</div> }`.Made in this format to Print directionPanel with additional wrappers
+
+## MapServices Params
+
+Function|Params|Description
+----|---|---
+placeMarkerOnClick| `(mapRef.current <Object>: React ref,latLng <Object>: {lat:<float>,lng:<float>})`|Used in association with `onMapClick`. Used to place a marker at coordinate of click. The markers places cannot be controlled later.Suggest to update a state object containing markers
+mapFitBounds|`(mapRef.current <Object>: React ref,coordinates <Array>:[{lat:<float>,lng:<float>}])`|Used to fit the viewport so as to include all the coordinates
+loadGMaps|`(apikey<String>,callback<function>)`| Used for dynamic loading of Maps Javascript API. Is already called if you import MapCoponent
+showInfoWindow|`(mapRef.current <Object>: React ref, marker <Object>: marker instance, content <String>, callback <function>)`| Used to display info window in association with a marker(like onMarkerClick). Callback function is supplied with the created infowindow instance See examples for usage
+advancedDirections|`(mapRef.current <Object>: React ref, coordinates <Array>:[{lat:<float>,lng:<float>}], callback <function>)`| Used to render direction in the map. The coordinates corresponds to the intermediate waypoints. Directions API have limitation of 25 way point. But this limitation is handled by calling batch direction requests and joining them in the map. callback function is supplied with the DirectionRenderer instance. If showDirectionPanel is enabled, this will also give a directions panel after calling this service
+geocode|`(mapRef.current <Object>: React ref, address <String>:address to geocode, callback <function>, elementList <Array>:list of infowindows already present)`| Used to convert address to coordiantes and place marker on the coordinate.
+
+
+
