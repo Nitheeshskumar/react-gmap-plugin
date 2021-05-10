@@ -80,7 +80,21 @@ export const reverseGeocodeService = (map, latlong, callback, elementList) => {
     }
   }).catch(e => e);
 };
-export const geocode = (map, address, callback, elementList) => {
+export const geocode = (map, address, callback) => {
+  const geocoder = new google.maps.Geocoder();
+  geocoder.geocode({
+    address: address
+  }, function (results, status) {
+    if (status === 'OK') {
+      map.panTo(results[0].geometry.location);
+      map.setZoom(17);
+      callback && callback(results);
+    } else {
+      throw status;
+    }
+  });
+};
+export const geocodeWithMarker = (map, address, callback, elementList) => {
   const geocoder = new google.maps.Geocoder();
   geocoder.geocode({
     address: address
@@ -161,14 +175,13 @@ export const showDirection = async (stationsArr, callback) => {
 
   return Tdistance;
 };
-export const showInfoWindow = (map, marker, event, el, content, elementList) => {
-  const location = event.latLng;
-  const Infocontent = content || '<div><strong>' + el.name + '</strong><br> Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng();
+export const showInfoWindow = (map, marker, content, callback) => {
+  const Infocontent = content || '<strong> Marker </strong>';
   const infowindow = new google.maps.InfoWindow({
     content: Infocontent
   });
   infowindow.open(map, marker);
-  elementList.infowindowList.push(infowindow);
+  callback&& callback(infowindow);
 };
 export const calcTotalDistance = legs => {
   const sum = legs.map(el => el.distance.value).reduce((a, b) => a + b);
