@@ -67,6 +67,11 @@ loadGMaps|`(apikey<String>,callback<function>)`| Used for dynamic loading of Map
 showInfoWindow|`(mapRef.current <Object>: React ref, marker <Object>: marker instance, content <String>, callback <function>)`| Used to display info window in association with a marker(like onMarkerClick). Callback function is supplied with the created infowindow instance See examples for usage
 advancedDirections|`(mapRef.current <Object>: React ref, coordinates <Array>:[{lat:<float>,lng:<float>}], callback <function>)`| Used to render direction in the map. The coordinates corresponds to the intermediate waypoints. Directions API have limitation of 25 way point. But this limitation is handled by calling batch direction requests and joining them in the map. callback function is supplied with the DirectionRenderer instance. If showDirectionPanel is enabled, this will also give a directions panel after calling this service
 geocode|`(mapRef.current <Object>: React ref, address <String>:address to geocode, callback <function>, elementList <Array>:list of infowindows already present)`| Used to convert address to coordiantes and place marker on the coordinate.
+geocode|`(mapRef.current <Object>: React ref, address <String>, callback <function>)`| Used to get the geocoded result of an input address. Callback function is supplied with the response
+
+## License
+
+This plugin is provided with MIT License
 
 
 
