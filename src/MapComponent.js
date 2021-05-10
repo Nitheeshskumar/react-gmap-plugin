@@ -15,7 +15,8 @@ const MapComponent = ({
   onClearSearch,
   showDirectionPanel,
   directionsPanelContainer,
-  API,defaultLocation,defaultZoom
+  API,defaultLocation,defaultZoom,
+  markerIcon
 }) => {
   const ref = React.useRef();
   const [inputRef, setInputRef] = React.useState();
@@ -57,7 +58,7 @@ const MapComponent = ({
               lng: parseFloat(el.lng)
             },
             name: el.name,
-            icon: el.Type === 'S' ? 'https://developers.google.com/maps/documentation/javascript/examples/full/images/library_maps.png' : '',
+            icon: markerIcon|| '',
             map: map
           });
           google.maps.event.addListener(marker, 'click', event => {
@@ -224,7 +225,8 @@ MapComponent.propTypes = {
   showDirectionPanel: PropTypes.bool,
   directionsPanelContainer: PropTypes.func,
   defaultLocation:PropTypes.object,
-  defaultZoom:PropTypes.number
+  defaultZoom:PropTypes.number,
+  markerIcon:PropTypes.oneOfType([PropTypes.string,PropTypes.element])
 };
 PlacesAutoComplete.propTypes = {
   mapRef: PropTypes.object

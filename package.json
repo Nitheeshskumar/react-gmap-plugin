@@ -16,7 +16,10 @@
     "Google",
     "map",
     "react",
-    "plugin"
+    "plugin",
+    "javascript",
+    "Directions","Geocode","Marker"
+
   ],
   "author": "Nitheesh S Kumar",
   "license": "MIT",

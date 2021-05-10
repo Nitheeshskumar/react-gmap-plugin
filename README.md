@@ -56,6 +56,7 @@ onSearch|`function`| Used is association with enableLocationSearch. The function
 onClearSearch|`function`|Any optional callbacks actions. The input is cleared on clicking clear button on search box by default
 showDirectionPanel|`Boolean`| To show directions in a panel after calling the directions service. Used with directionsPanelContainer function.
 directionsPanelContainer|`function`|Custom wrapper for the directionPanel. Eg: `directionsPanelContainer={(child)=><div className='wrapper'>{child}</div> }`.Made in this format to Print directionPanel with additional wrappers
+markerIcon| `String`|The src url or imported image to be used as custom marker icon
 
 ## MapServices Params
 
