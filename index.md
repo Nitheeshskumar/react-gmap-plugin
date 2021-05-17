@@ -49,6 +49,7 @@ return  <div className="App" style={{ height: "200px" }}>
 ```
 
 ## Showing multiple Location using markers
+#uses custom markers, shows infowindow on clickin the marker
 
 The default markerIcon is same as the default google map marker. It is not necessary to provide a default marker. 
 
@@ -87,6 +88,9 @@ return  <div className="App" style={{ height: "200px" }}>
 ```
 
 ## Search By Location
+
+Uses GeocodeAPI to find the location of an address.
+Setting enableLocationSearch to true renders a search box on the map. It can be customised using css
 
 ```javascript
 import React from 'react'
@@ -130,6 +134,7 @@ return  <div className="App" style={{ height: "200px" }}>
 The directions API can be called using the advancedDirections function. This function is different from the usual DirectionsAPI because it overcame the 25 waypoints limitation of the API. Additional waypoints are called as batch and the result is joined as one renderer. 
 This example uses a plugin react-to-print to print the directions panel. This is the scenario addressed by using a seperate directionsPanelContainer wrapper prop.
 You can modify the styles associated with it to match your requirements
+
 ```javascript
 import React from "react";
 import { MapComponent, MapServices } from "react-gmap-plugin";
