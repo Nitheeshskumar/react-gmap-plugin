@@ -56,8 +56,8 @@ onSearch|`function`| Used is association with enableLocationSearch. The function
 onClearSearch|`function`|Any optional callbacks actions. The input is cleared on clicking clear button on search box by default
 showDirectionPanel|`Boolean`| To show directions in a panel after calling the directions service. Used with directionsPanelContainer function.
 directionsPanelContainer|`function`|Custom wrapper for the directionPanel. Eg: `directionsPanelContainer={(child)=><div className='wrapper'>{child}</div> }`.Made in this format to Print directionPanel with additional wrappers
-markerIcons| `Object`|The key value pairs of src url or imported image to be used as custom marker icon. 
-defaultMarkerIcon|`string/image`| Overrides the default marker icon to be used. This can further be overrriden by the markerIcon key in markerList 
+markerIcons| `Object`|The key value pairs of src url or imported image to be used as custom marker icon.
+defaultMarkerIcon|`string/image`| Overrides the default marker icon to be used. This can further be overrriden by the markerIcon key in markerList
 
 ## MapServices Params
 
@@ -70,6 +70,10 @@ showInfoWindow|`(mapRef.current <Object>: React ref, marker <Object>: marker ins
 advancedDirections|`(mapRef.current <Object>: React ref, coordinates <Array>:[{lat:<float>,lng:<float>}], callback <function>)`| Used to render direction in the map. The coordinates corresponds to the intermediate waypoints. Directions API have limitation of 25 way point. But this limitation is handled by calling batch direction requests and joining them in the map. callback function is supplied with the DirectionRenderer instance. If showDirectionPanel is enabled, this will also give a directions panel after calling this service
 geocode|`(mapRef.current <Object>: React ref, address <String>:address to geocode, callback <function>, elementList <Array>:list of infowindows already present)`| Used to convert address to coordiantes and place marker on the coordinate.
 geocode|`(mapRef.current <Object>: React ref, address <String>, callback <function>)`| Used to get the geocoded result of an input address. Callback function is supplied with the response
+
+## Examples
+
+The Examples are provided in the [package website]('https://nitheeshskumar.github.io/react-gmap-plugin/')
 
 ## License
 
