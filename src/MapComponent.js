@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {loadGMaps,mapFitBounds} from './MapServices';
-
+import './Styles.scss'
 const MapComponent = ({
   options,
   onMarkerClick,
@@ -142,7 +142,9 @@ export const SearchLocation = ({
   }), inputEl.current?.value && /*#__PURE__*/React.createElement("div", {
     className: "clearbutton",
     onClick: clearSearch
-  })))));
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "closeButton"
+  }, "X"))))));
 };
 export const PlacesAutoComplete = ({
   mapRef

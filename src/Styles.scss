@@ -1,0 +1,55 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  .mapWrap{
+    background: rgba(0, 26, 55, 0.8);
+    position: absolute;
+    z-index: 100;
+    color: #fff;
+    padding: 9px 10px;
+    font-size: 11px;
+
+  }
+
+  .directionsPanel{
+    float: right;
+  width: 30%;
+  height:400px;
+  overflow-y: auto;
+  // border-bottom: 1px solid #666;
+  margin-bottom: 42px;
+      @media print {
+        //   position: absolute;
+        float: left;
+          height: auto;
+          width:100%;
+        //   overflow: visible;
+          table, tr, td, th, tbody, thead, tfoot { page-break-inside: avoid !important; }
+          table {
+            // table-layout: fixed;
+            width: 100%;
+              tbody{
+                  width: 100%;
+                tr{
+                    width: 100%;
+                    td{
+                      padding: 10px;
+                    }
+
+
+                }
+              }
+          }
+      }
+  }
+  .directionsPanelContainer{
+     @media print {
+        position:relative;
+        display:table;
+        table-layout:fixed;
+        display: block;
+
+     }
+
+  }
