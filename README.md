@@ -73,7 +73,7 @@ geocode|`(mapRef.current <Object>: React ref, address <String>, callback <functi
 
 ## Examples
 
-The Examples are provided in the [package website]('https://nitheeshskumar.github.io/react-gmap-plugin/')
+The Examples are provided in the [package website](https://nitheeshskumar.github.io/react-gmap-plugin/)
 
 ## License
 
