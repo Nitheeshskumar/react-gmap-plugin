@@ -11,7 +11,7 @@ export const placeMarkerOnClick = (map, location) => {
     });
     infowindow.open(map, marker);
   });
-  google.maps.event.addListener(map, 'rightclick', function () {
+  google.maps.event.addListener(marker, 'rightclick', function () {
     marker.setMap(null);
     marker = null;
   });
