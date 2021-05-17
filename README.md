@@ -46,7 +46,7 @@ return  <div className="App" style={{ height: "200px" }}>
 |---|---|---
 API|`String`|**Required**: Your Google Maps API Key. Additionally you can provide libraries or other query params after the key. Eg: `API='yourkey&library=places,geometry'`. Can also be set globally using env variable `REACT_APP_GMAPAPI`. One of either is mandatory
 mapRef|`Object`|**Required**: The google maps instance is created on the initial load of map across the application.The instance can be accessed by a component by passign a React ref. This is used when accessing the MapServices functions or while creating your own Services
-markerList|`Array`|The list of markers that are shown in the map at a time. For dynamic markers, recommended to keep in a state as array. Eg: ``` markerList={[lat:floatNumber,lng:floatNumber,...anyOtherKeys]}  ```
+markerList|`Array`|The list of markers that are shown in the map at a time. For dynamic markers, recommended to keep in a state as array.The lat and lng key determinses the position and markerIcon is the key of custom marker image to be looked up from the markerIcons prop. markerIcon is not mandatory and if not provided uses default marker icon. Eg: ``` markerList={[lat:floatNumber,lng:floatNumber,markerIcons:'string',  ...anyOtherKeys]}  ```
 defaultLocation|`Object`|The initial centered location when map is rendered. `{lat:floatNumber,lng:floatNumber}`. Default:`{lat: 41.2033, lng: -77.1945}` at Pennsylvania.
 defaultZoom|`Number`| The default zoom level. Default: `6`
 disable|`Boolean`|To disable the map rendering. Default:`false`. When disable is true, the map is not rendered instead an empty div with `className:'map-optional-container'` is rendered. Can be used to enable map on click of a button.
@@ -56,7 +56,8 @@ onSearch|`function`| Used is association with enableLocationSearch. The function
 onClearSearch|`function`|Any optional callbacks actions. The input is cleared on clicking clear button on search box by default
 showDirectionPanel|`Boolean`| To show directions in a panel after calling the directions service. Used with directionsPanelContainer function.
 directionsPanelContainer|`function`|Custom wrapper for the directionPanel. Eg: `directionsPanelContainer={(child)=><div className='wrapper'>{child}</div> }`.Made in this format to Print directionPanel with additional wrappers
-markerIcon| `String`|The src url or imported image to be used as custom marker icon
+markerIcons| `Object`|The key value pairs of src url or imported image to be used as custom marker icon. 
+defaultMarkerIcon|`string/image`| Overrides the default marker icon to be used. This can further be overrriden by the markerIcon key in markerList 
 
 ## MapServices Params
 
