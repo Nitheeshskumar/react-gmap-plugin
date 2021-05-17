@@ -58,6 +58,8 @@ showDirectionPanel|`Boolean`| To show directions in a panel after calling the di
 directionsPanelContainer|`function`|Custom wrapper for the directionPanel. Eg: `directionsPanelContainer={(child)=><div className='wrapper'>{child}</div> }`.Made in this format to Print directionPanel with additional wrappers
 markerIcons| `Object`|The key value pairs of src url or imported image to be used as custom marker icon.
 defaultMarkerIcon|`string/image`| Overrides the default marker icon to be used. This can further be overrriden by the markerIcon key in markerList
+onMapClick|`function(event)`| Triggered on Clicking anywhere on Map
+onMarkerClick|`function(marker,event,markerDetail)`| Triggered on Clicking the Marker Provided in the markerList Array
 
 ## MapServices Params
 
@@ -68,8 +70,9 @@ mapFitBounds|`(mapRef.current <Object>: React ref,coordinates <Array>:[{lat:<flo
 loadGMaps|`(apikey<String>,callback<function>)`| Used for dynamic loading of Maps Javascript API. Is already called if you import MapCoponent
 showInfoWindow|`(mapRef.current <Object>: React ref, marker <Object>: marker instance, content <String>, callback <function>)`| Used to display info window in association with a marker(like onMarkerClick). Callback function is supplied with the created infowindow instance See examples for usage
 advancedDirections|`(mapRef.current <Object>: React ref, coordinates <Array>:[{lat:<float>,lng:<float>}], callback <function>)`| Used to render direction in the map. The coordinates corresponds to the intermediate waypoints. Directions API have limitation of 25 way point. But this limitation is handled by calling batch direction requests and joining them in the map. callback function is supplied with the DirectionRenderer instance. If showDirectionPanel is enabled, this will also give a directions panel after calling this service
-geocode|`(mapRef.current <Object>: React ref, address <String>:address to geocode, callback <function>, elementList <Array>:list of infowindows already present)`| Used to convert address to coordiantes and place marker on the coordinate.
 geocode|`(mapRef.current <Object>: React ref, address <String>, callback <function>)`| Used to get the geocoded result of an input address. Callback function is supplied with the response
+placeMarkerAfterGeoCode|`(mapRef.current <Object>: React ref, address <String>:address to geocode, callback <function>, elementList <Array>:list of infowindows already present)`| Used to convert address to coordiantes and place marker on the coordinate.
+
 
 ## Examples
 
