@@ -1,7 +1,7 @@
 /* global google */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {loadGMaps} from './MapServices';
+import {loadGMaps,mapFitBounds} from './MapServices';
 
 const MapComponent = ({
   options,
@@ -16,7 +16,8 @@ const MapComponent = ({
   showDirectionPanel,
   directionsPanelContainer,
   API,defaultLocation,defaultZoom,
-  markerIcon
+  markerIcons,
+  defaultMarkerIcon
 }) => {
   const ref = React.useRef();
   const [inputRef, setInputRef] = React.useState();
@@ -58,7 +59,7 @@ const MapComponent = ({
               lng: parseFloat(el.lng)
             },
             name: el.name,
-            icon: markerIcon|| '',
+            icon: markerIcons?.[el.markerIcon]||defaultMarkerIcon|| '',
             map: map
           });
           google.maps.event.addListener(marker, 'click', event => {
@@ -74,6 +75,8 @@ const MapComponent = ({
           lng: parseFloat(markerList[0]?.lng)
         });
         map.setZoom(17);
+      }else if(markerList.length >1){
+        mapFitBounds(map,markerList)
       }
     }
 
@@ -226,7 +229,8 @@ MapComponent.propTypes = {
   directionsPanelContainer: PropTypes.func,
   defaultLocation:PropTypes.object,
   defaultZoom:PropTypes.number,
-  markerIcon:PropTypes.oneOfType([PropTypes.string,PropTypes.element])
+  markerIcons: PropTypes.object,
+  defaultMarkerIcon:PropTypes.oneOfType([PropTypes.string,PropTypes.element]),
 };
 PlacesAutoComplete.propTypes = {
   mapRef: PropTypes.object
